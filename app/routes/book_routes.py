@@ -24,7 +24,6 @@ def create_book():
 
 @books_bp.get("")
 def get_all_books():
-
     query = db.select(Book)
 
     title_param = request.args.get("title")
