@@ -1,7 +1,7 @@
 from flask import Flask
 from .db import db, migrate
-from .models import book 
-from .routes.book_routes import books_bp
+from .models import book
+from .routes.book_routes import bp as books_bp
 import os
 
 def create_app(config=None):
@@ -12,7 +12,7 @@ def create_app(config=None):
 
     if config:
         # Merge `config` into the app's configuration
-        # to override the app's default settings
+        # to override the app's default settings for testing
         app.config.update(config)
 
     db.init_app(app)
