@@ -32,6 +32,10 @@ def get_books_by_author(author_id):
     response = [book.to_dict() for book in author.books]
     return response
 
+@bp.get("/<author_id>")
+def get_one_author(author_id):
+    author = validate_model(Author, author_id)
+    return author.to_dict(), 200
 
 
 
